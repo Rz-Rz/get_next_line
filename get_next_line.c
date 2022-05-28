@@ -128,5 +128,7 @@ void clean_stash(t_list **stash)
 		while (last->content[i])
 				clean_node->content[j++] = last->content[i++];
 		clean_node->content[j] = '\0';
-		free(stash);
+		free_stash(*stash);
+		*stash = clean_node; 
+
 }
