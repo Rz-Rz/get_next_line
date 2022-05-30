@@ -1,13 +1,13 @@
 #include "get_next_line.h"
 
-int ft_found_newline(t_list *stash)
+int found_newline(t_list *stash)
 {
 		int i;
 		t_list *current;
 
 		if (!stash)
-				return (NULL);
-		current = ft_lstlast(stash); 
+				return (0);
+		current = lstlast(stash); 
 		i = 0;
 		while (current->content[i])
 		{
@@ -26,15 +26,13 @@ void generate_line(char **line, t_list *stash)
 		len = 0;
 		while (stash)
 		{
+				i = 0;
 				while (stash->content[i])
 				{
 
-						if (stash->content[i] == '\n')
-						{
-								len++;
-								break;
-						}
 						len++;
+						if (stash->content[i] == '\n')
+								break;
 						i++;
 				}
 				stash = stash->next;
@@ -52,7 +50,28 @@ void free_stash(t_list *stash)
 		{
 				free(current->content);
 				next = current->next;
-				free(current->content);
+				free(current);
 				current = next;
 		}
+}
+
+t_list	*lstlast(t_list *lst)
+{
+	while (lst)
+	{
+		if (!lst->next)
+			return (lst);
+		lst = lst->next;
+	}
+	return (lst);
+}
+
+int ft_strlen(char *c)
+{
+	int	i;
+
+	i = 0;
+	while (c[i])
+		i++;
+	return (i);
 }
