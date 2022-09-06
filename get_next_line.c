@@ -8,7 +8,6 @@ char *get_next_line(int fd)
 
 		if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
 				return (NULL);
-
 		readval = 1;
 		line = NULL;
 		// 1. read from fd and add to linked list
