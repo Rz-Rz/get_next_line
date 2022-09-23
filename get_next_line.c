@@ -6,7 +6,7 @@
 /*   By: kdhrif <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:36:19 by kdhrif            #+#    #+#             */
-/*   Updated: 2022/09/22 15:10:19 by kdhrif           ###   ########.fr       */
+/*   Updated: 2022/09/23 16:23:52 by kdhrif           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	*get_next_line(int fd)
 	char			*line;
 	int				readval;
 
-	stash = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
 		return (NULL);
 	readval = 1;
